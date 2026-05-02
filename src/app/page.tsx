@@ -4,6 +4,9 @@ import HomeServices from "@/components/HomeServices";
 import FeaturedReviews from "@/components/FeaturedReviews";
 import HomeFAQ from "@/components/HomeFAQ";
 import QuickContact from "@/components/QuickContact";
+import PricingPackages from "@/components/PricingPackages";
+import HowItWorks from "@/components/HowItWorks";
+import ServiceAreas from "@/components/ServiceAreas";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -13,6 +16,9 @@ export default function HomePage() {
       <main className="flex-1">
         <Hero />
         <HomeServices />
+        <PricingPackages />
+        <HowItWorks />
+        <ServiceAreas />
         <FeaturedReviews />
         <HomeFAQ />
         <QuickContact />

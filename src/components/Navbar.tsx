@@ -4,13 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
+import { contactInfo } from "@/lib/siteContent";
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'About & Contact', href: '/about' }, // Updated name
+  { name: 'Get Quote', href: '/book' },
+  { name: 'About', href: '/about' },
 ];
 
 export default function Navbar() {
@@ -63,12 +65,18 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="https://calendly.com/zazuquickfix/30min"
+            href={contactInfo.smsHref}
+            className="rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+          >
+            Text Quote
+          </a>
+          <a
+            href={contactInfo.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Book Now
+            Book Detail
           </a>
         </div>
       </nav>
@@ -112,13 +120,13 @@ export default function Navbar() {
                   </div>
                   <div className="py-6">
                     <a
-                      href="https://calendly.com/zazuquickfix/30min"
+                      href={contactInfo.calendlyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary w-full text-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Book Now
+                      Book Detail
                     </a>
                   </div>
                 </div>

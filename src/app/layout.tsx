@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -9,9 +10,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ZazuQuickFix - Mobile Auto Repair & Detailing | Oakland & Bay Area",
-  description: "Affordable and professional mobile mechanic and car detailing services in Oakland and the Bay Area. ZazuQuickFix comes to you!",
-  keywords: "mobile mechanic Oakland, car detailing Bay Area, auto repair, mobile car wash, ZazuQuickFix, Oakland, Bay Area",
+  title: "Bay Area Mobile Car Wash & Detailing | ZazuQuickFix",
+  description:
+    "ZazuQuickFix offers mobile car wash and auto detailing in Oakland and the Bay Area. Interior detailing, exterior wash, pet hair removal, stain treatment, and full mobile detail packages at your location.",
+  keywords:
+    "mobile detailing Oakland, mobile car wash Oakland, Bay Area mobile detailing, interior car detailing Oakland, mobile auto detailing Bay Area, car wash at home Bay Area",
 };
 
 export const viewport: Viewport = {
@@ -27,8 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} h-full scroll-smooth`}>
-      <body className="min-h-screen font-sans antialiased">
+      <body className="min-h-screen pb-20 font-sans antialiased md:pb-0">
         {children}
+        <MobileStickyCTA />
       </body>
     </html>
   );
