@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 
@@ -31,6 +32,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} h-full scroll-smooth`}>
       <body className="min-h-screen pb-20 font-sans antialiased md:pb-0">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TRFFL678KJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-manager-ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TRFFL678KJ');
+          `}
+        </Script>
         {children}
         <MobileStickyCTA />
       </body>
