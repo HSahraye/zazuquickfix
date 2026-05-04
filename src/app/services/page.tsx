@@ -1,11 +1,65 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
-import {
-  detailingServices,
-  maintenanceServices,
-  contactInfo,
-} from "@/lib/siteContent";
+import { contactInfo } from "@/lib/siteContent";
+import { BOOKING_LINKS } from "@/config/booking";
+
+const packages = [
+  {
+    name: "Quick Wash",
+    price: "From $79",
+    bestFor: "Maintenance cleanups and lightly dirty vehicles.",
+    includes: [
+      "Exterior hand wash",
+      "Wheels and tires cleaned",
+      "Windows cleaned",
+      "Quick wipe-down of obvious exterior grime",
+      "Tire shine",
+    ],
+    cta: "Book Quick Wash",
+    bookingUrl: BOOKING_LINKS.quickWash,
+  },
+  {
+    name: "Full Detail",
+    price: "From $199",
+    bestFor:
+      "Most customers who want the inside and outside cleaned in one visit.",
+    includes: [
+      "Exterior wash",
+      "Wheels, tires, and windows",
+      "Interior vacuum",
+      "Dashboard, console, cupholders, and door panels wiped down",
+      "Light stain attention",
+      "Interior refresh",
+    ],
+    cta: "Book Full Detail",
+    bookingUrl: BOOKING_LINKS.fullDetail,
+  },
+  {
+    name: "Deep Reset",
+    price: "From $299+",
+    bestFor:
+      "Neglected interiors, family cars, pet hair, stains, odors, and rideshare vehicles.",
+    includes: [
+      "Deep interior vacuum",
+      "Pet hair removal where possible",
+      "Stain treatment",
+      "Shampoo/extraction where appropriate",
+      "Odor treatment option",
+      "Exterior wash included",
+      "Final walkthrough",
+    ],
+    cta: "Book Deep Reset",
+    bookingUrl: BOOKING_LINKS.deepReset,
+  },
+];
+
+const addOns = [
+  "Heavy pet hair",
+  "Heavy stains",
+  "Odor treatment",
+  "Headlight restoration",
+  "Oversized SUV/truck",
+];
 
 export default function ServicesPage() {
   return (
@@ -14,60 +68,65 @@ export default function ServicesPage() {
       <main className="flex-1 section-padding container-padding pt-24 md:pt-32">
         <div className="mx-auto max-w-6xl">
           <h1 className="text-center text-4xl font-bold tracking-tight sm:text-5xl">
-            Mobile Car Wash & Detailing Services
+            Mobile Detail Packages
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-gray-600">
-            Detailing-first service menu for Oakland and the Bay Area.
+            Three clear packages to make booking simple and fast.
           </p>
 
-          <section id="detailing" className="mt-16">
-            <h2 className="text-3xl font-semibold text-accent">
-              Detailing & Car Wash Services
-            </h2>
-            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {detailingServices.map((service) => (
-                <div
-                  key={service}
-                  className="rounded-lg border border-orange-100 bg-orange-50 p-5"
+          <section className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {packages.map((pkg) => (
+              <article
+                key={pkg.name}
+                className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <h2 className="text-2xl font-semibold text-gray-900">{pkg.name}</h2>
+                <p className="mt-1 text-lg font-bold text-primary">{pkg.price}</p>
+                <p className="mt-3 text-sm text-gray-600">
+                  <span className="font-semibold text-gray-800">Best for:</span>{" "}
+                  {pkg.bestFor}
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                  {pkg.includes.map((line) => (
+                    <li key={line}>- {line}</li>
+                  ))}
+                </ul>
+                <a
+                  href={pkg.bookingUrl}
+                  className="mt-6 inline-block btn-primary"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {service}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Mobile service available at home, office, or apartment
-                    parking setup.
-                  </p>
-                </div>
-              ))}
-            </div>
+                  {pkg.cta}
+                </a>
+              </article>
+            ))}
           </section>
 
-          <section id="mechanic" className="mt-14 rounded-xl border border-blue-100 bg-blue-50 p-8">
-            <h2 className="text-2xl font-semibold text-primary">
-              Also Available: Basic Mobile Maintenance
-            </h2>
-            <p className="mt-2 text-gray-700">
-              Mechanic support is available as secondary service depending on
-              location and schedule.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {maintenanceServices.map((service) => (
+          <section className="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6">
+            <h3 className="text-xl font-semibold text-gray-900">Available Add-ons</h3>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {addOns.map((item) => (
                 <span
-                  key={service}
-                  className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700"
+                  key={item}
+                  className="rounded-full bg-white px-3 py-1 text-sm text-gray-700"
                 >
-                  {service}
+                  {item}
                 </span>
               ))}
             </div>
           </section>
 
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-            <Link href="/pricing" className="btn-primary text-center">
-              See Detailing Packages
-            </Link>
-            <a href={contactInfo.smsHref} className="btn-secondary text-center">
-              Text Photos for Quote
+          <p className="mt-8 rounded-lg bg-gray-100 p-4 text-sm text-gray-700">
+            Prices are starting rates. Final pricing depends on vehicle size,
+            condition, pet hair, stains, odor, parking access, and location.
+            For the most accurate quote, text photos to +1 (510) 978-6055.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href={contactInfo.phoneHref} className="btn-secondary text-center">
+              Call or Text
+            </a>
+            <a href={contactInfo.bookPath} className="btn-primary text-center">
+              Book Appointment
             </a>
           </div>
         </div>

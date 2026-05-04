@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-detailing-oakland"];
 
 export const metadata: Metadata = {
-  title: "Mobile Detailing Oakland, CA | ZazuQuickFix",
+  title: "Mobile Detailing Oakland, CA | Mobile Labs",
   description:
-    "Book mobile detailing in Oakland with ZazuQuickFix. Interior resets, exterior washes, pet hair removal, and full detail packages at your location.",
+    "Book mobile detailing in Oakland with Mobile Labs. Interior resets, exterior washes, pet hair removal, and full detail packages at your location.",
 };
 
 export default function MobileDetailingOaklandPage() {

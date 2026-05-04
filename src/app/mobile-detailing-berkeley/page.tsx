@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-detailing-berkeley"];
 
 export const metadata: Metadata = {
-  title: "Mobile Detailing Berkeley, CA | ZazuQuickFix",
+  title: "Mobile Detailing Berkeley, CA | Mobile Labs",
   description:
-    "ZazuQuickFix delivers mobile detailing in Berkeley, from quick washes to deep interior work for family and rideshare vehicles.",
+    "Mobile Labs delivers mobile detailing in Berkeley, from quick washes to deep interior work for family and rideshare vehicles.",
 };
 
 export default function MobileDetailingBerkeleyPage() {

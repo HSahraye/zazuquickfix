@@ -65,16 +65,11 @@ export default function CityLandingPage({ h1, intro }: CityLandingPageProps) {
               <a href={contactInfo.smsHref} className="btn-primary text-center">
                 Text Photos for Quote
               </a>
-              <a
-                href={contactInfo.calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-accent text-center"
-              >
+              <Link href={contactInfo.bookPath} className="btn-accent text-center">
                 Book Mobile Detail
-              </a>
+              </Link>
               <Link href="/book" className="btn-secondary text-center">
-                Open Quote Form
+                Go to Booking Page
               </Link>
             </div>
           </section>

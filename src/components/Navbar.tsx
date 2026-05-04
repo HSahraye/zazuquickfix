@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Services', href: '/services' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'Get Quote', href: '/book' },
+  { name: 'Book', href: '/book' },
   { name: 'About', href: '/about' },
 ];
 
@@ -39,7 +39,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className={`text-2xl font-bold transition-colors duration-200 ease-in-out ${isScrolled || mobileMenuOpen ? 'text-primary' : 'text-primary'}`}>Zazu<span className="text-accent">QuickFix</span></span>
+            <span className={`text-2xl font-bold transition-colors duration-200 ease-in-out ${isScrolled || mobileMenuOpen ? 'text-primary' : 'text-primary'}`}>Mobile<span className="text-accent">Labs</span></span>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -65,19 +65,14 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href={contactInfo.smsHref}
+            href={contactInfo.phoneHref}
             className="rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
           >
-            Text Quote
+            Call or Text
           </a>
-          <a
-            href={contactInfo.calendlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Book Detail
-          </a>
+          <Link href={contactInfo.bookPath} className="btn-primary">
+            Book Appointment
+          </Link>
         </div>
       </nav>
 
@@ -93,7 +88,7 @@ export default function Navbar() {
             <div className="px-6 pb-6 pt-5">
               <div className="flex items-center justify-between">
                 <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-                   <span className="text-2xl font-bold text-primary">Zazu<span className="text-accent">QuickFix</span></span>
+                   <span className="text-2xl font-bold text-primary">Mobile<span className="text-accent">Labs</span></span>
                 </Link>
                 <button
                   type="button"
@@ -120,14 +115,19 @@ export default function Navbar() {
                   </div>
                   <div className="py-6">
                     <a
-                      href={contactInfo.calendlyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary w-full text-center"
+                      href={contactInfo.phoneHref}
+                      className="mb-3 block rounded-full border border-primary px-4 py-2 text-center text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Book Detail
+                      Call or Text
                     </a>
+                    <Link
+                      href={contactInfo.bookPath}
+                      className="btn-primary block w-full text-center"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Book Appointment
+                    </Link>
                   </div>
                 </div>
               </div>

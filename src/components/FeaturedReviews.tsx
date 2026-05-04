@@ -5,21 +5,33 @@ import { motion } from "framer-motion";
 const customerOutcomes = [
   {
     id: 1,
-    title: "Convenience-first scheduling",
-    quote:
-      "Most customers choose us because we come to their home, office, or apartment parking area.",
+    title: "Dirty interiors",
+    quote: "High-traffic daily drivers that need a full interior reset.",
   },
   {
     id: 2,
-    title: "Clear package expectations",
-    quote:
-      "We use straightforward package descriptions and quote-first pricing so there are no surprises.",
+    title: "Pet hair",
+    quote: "Fur buildup in seats, carpets, and trunk areas.",
   },
   {
     id: 3,
-    title: "Practical detailing results",
-    quote:
-      "From family SUVs to rideshare vehicles, we focus on visible interior and exterior improvements.",
+    title: "Coffee stains",
+    quote: "Stain treatment for seats and upholstery touch points.",
+  },
+  {
+    id: 4,
+    title: "Family SUVs",
+    quote: "Interior cleanup packages for high-use family vehicles.",
+  },
+  {
+    id: 5,
+    title: "Rideshare cleaning",
+    quote: "Fast turnarounds between shifts and weekly resets.",
+  },
+  {
+    id: 6,
+    title: "Headlight restoration",
+    quote: "Cloudy headlights polished for a cleaner front-end look.",
   },
 ];
 
@@ -29,15 +41,14 @@ export default function FeaturedReviews() {
       <div className="mx-auto max-w-7xl container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Why Customers Book ZazuQuickFix
+            What Customers Book Us For
           </h2>
           <p className="mt-4 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-            Built around convenience, clear pricing, and results-focused
-            detailing.
+            Common detailing needs we handle across Oakland and the Bay Area.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {customerOutcomes.map((item, index) => (
             <motion.div
               key={item.id}

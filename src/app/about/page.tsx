@@ -10,10 +10,10 @@ export default function AboutContactPage() {
       <main className="flex-1 section-padding container-padding pt-24 md:pt-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-10 text-center">
-            About ZazuQuickFix
+            About Mobile Labs
           </h1>
           <p className="text-lg leading-relaxed text-gray-700 mb-12 text-center">
-            ZazuQuickFix is a mobile-first service focused on car wash and
+            Mobile Labs is a mobile-first service focused on car wash and
             detailing for busy Bay Area drivers. We bring practical vehicle
             cleaning packages to your location so you can skip the line at a
             shop.

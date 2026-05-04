@@ -1,21 +1,4 @@
-import Link from "next/link";
 import { serviceAreaCities } from "@/lib/siteContent";
-
-const cityPages = [
-  { label: "Mobile Detailing Oakland", href: "/mobile-detailing-oakland" },
-  { label: "Mobile Car Wash Oakland", href: "/mobile-car-wash-oakland" },
-  { label: "Mobile Detailing Alameda", href: "/mobile-detailing-alameda" },
-  { label: "Mobile Detailing Berkeley", href: "/mobile-detailing-berkeley" },
-  {
-    label: "Mobile Detailing San Leandro",
-    href: "/mobile-detailing-san-leandro",
-  },
-  { label: "Mobile Detailing Hayward", href: "/mobile-detailing-hayward" },
-  {
-    label: "Mobile Detailing Walnut Creek",
-    href: "/mobile-detailing-walnut-creek",
-  },
-];
 
 export default function ServiceAreas() {
   return (
@@ -33,21 +16,10 @@ export default function ServiceAreas() {
           {serviceAreaCities.map((city) => (
             <span
               key={city}
-              className="rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700"
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700"
             >
               {city}
             </span>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {cityPages.map((cityPage) => (
-            <Link
-              key={cityPage.href}
-              href={cityPage.href}
-              className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black"
-            >
-              {cityPage.label}
-            </Link>
           ))}
         </div>
       </div>

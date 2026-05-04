@@ -1,73 +1,55 @@
+import {
+  BOOKING_LINKS,
+  PHONE_NUMBER_DISPLAY,
+  PHONE_NUMBER_SMS,
+  PHONE_NUMBER_TEL,
+} from "@/config/booking";
+
 export const contactInfo = {
-  phoneDisplay: "+1 (341) 238-6141",
-  phoneHref: "tel:+13412386141",
-  smsHref: "sms:+13412386141",
+  phoneDisplay: PHONE_NUMBER_DISPLAY,
+  phoneHref: PHONE_NUMBER_TEL,
+  smsHref: PHONE_NUMBER_SMS,
   email: "zazuquickfix@gmail.com",
-  instagramHandle: "@ZazuQuickFix",
-  calendlyUrl: "https://calendly.com/zazuquickfix/30min",
+  instagramHandle: "@MobileLabs",
+  bookPath: "/book",
 };
 
 export const trustBadges = [
   "We come to you",
-  "Same-day availability when possible",
-  "Interior & exterior packages",
+  "Upfront starting prices",
+  "Interior & exterior details",
   "Oakland & Bay Area",
-];
-
-export const detailingServices = [
-  "Express Exterior Wash",
-  "Interior Reset",
-  "Full Mobile Detail",
-  "Deep Interior Detail",
-  "Pet Hair & Stain Removal",
-  "Headlight Restoration",
-  "Fleet / Rideshare Cleaning",
-];
-
-export const maintenanceServices = [
-  "Oil change",
-  "Battery replacement",
-  "OBD-II scan",
-  "Air and cabin filters",
-  "Tire plug repair",
-  "Brake pad service",
 ];
 
 export const packageCards = [
   {
-    name: "Express Mobile Wash",
-    price: "Starting at $49",
+    name: "Quick Wash",
+    price: "From $79",
+    cta: "Book Quick Wash",
+    bookingUrl: BOOKING_LINKS.quickWash,
     includes:
-      "Exterior hand wash, wheels, tires, windows, and quick dry.",
+      "Exterior hand wash, wheels and tires cleaned, windows cleaned, quick wipe-down of obvious exterior grime, and tire shine.",
   },
   {
-    name: "Interior Reset",
-    price: "Starting at $99",
+    name: "Full Detail",
+    price: "From $199",
+    cta: "Book Full Detail",
+    bookingUrl: BOOKING_LINKS.fullDetail,
     includes:
-      "Vacuum, wipe down, cupholders, dashboard, door panels, trash removal, and light interior refresh.",
+      "Exterior wash, wheels/tires/windows, interior vacuum, dash/console/cupholders/door panels wipe-down, light stain attention, and interior refresh.",
   },
   {
-    name: "Full Mobile Detail",
-    price: "Starting at $179",
+    name: "Deep Reset",
+    price: "From $299+",
+    cta: "Book Deep Reset",
+    bookingUrl: BOOKING_LINKS.deepReset,
     includes:
-      "Interior reset plus exterior wash, wheels, windows, tire shine, and light stain attention.",
-  },
-  {
-    name: "Deep Interior Detail",
-    price: "Starting at $199-$299",
-    includes:
-      "Deep vacuum, shampoo/extraction where needed, stain treatment, pet hair removal available, and odor treatment available.",
-  },
-  {
-    name: "Premium Detail Day",
-    price: "Starting at $299+",
-    includes:
-      "Best for neglected vehicles, family cars, rideshare cars, multiple vehicles, and lease return prep.",
+      "Deep interior vacuum, pet hair removal where possible, stain treatment, shampoo/extraction where appropriate, odor treatment option, exterior wash, and final walkthrough.",
   },
 ];
 
 export const pricingNote =
-  "Final pricing may vary by vehicle size, condition, pet hair, stains, and location. Send photos for the most accurate quote.";
+  "Prices are starting rates. Final pricing depends on vehicle size, condition, pet hair, stains, odor, parking access, and location. For the most accurate quote, text photos to +1 (510) 978-6055.";
 
 export const serviceAreaCities = [
   "Oakland",
@@ -147,7 +129,7 @@ export const cityLandingPages: Record<string, CityLandingConfig> = {
   "mobile-detailing-oakland": {
     h1: "Mobile Detailing in Oakland, CA",
     intro:
-      "Get professional mobile detailing in Oakland without driving to a shop. ZazuQuickFix brings interior and exterior detailing directly to your driveway, curbside parking, or office lot.",
+      "Get professional mobile detailing in Oakland without driving to a shop. Mobile Labs brings interior and exterior detailing directly to your driveway, curbside parking, or office lot.",
   },
   "mobile-car-wash-oakland": {
     h1: "Mobile Car Wash in Oakland, CA",
@@ -157,7 +139,7 @@ export const cityLandingPages: Record<string, CityLandingConfig> = {
   "mobile-detailing-alameda": {
     h1: "Mobile Detailing in Alameda, CA",
     intro:
-      "From apartment complexes to single-family homes, ZazuQuickFix offers mobile detailing throughout Alameda with clear pricing and convenient scheduling.",
+      "From apartment complexes to single-family homes, Mobile Labs offers mobile detailing throughout Alameda with clear pricing and convenient scheduling.",
   },
   "mobile-detailing-berkeley": {
     h1: "Mobile Detailing in Berkeley, CA",
@@ -167,7 +149,7 @@ export const cityLandingPages: Record<string, CityLandingConfig> = {
   "mobile-detailing-san-leandro": {
     h1: "Mobile Detailing in San Leandro, CA",
     intro:
-      "ZazuQuickFix provides mobile car detailing across San Leandro with quote-first service and package options ranging from quick washes to deep interior work.",
+      "Mobile Labs provides mobile car detailing across San Leandro with quote-first service and package options ranging from quick washes to deep interior work.",
   },
   "mobile-detailing-hayward": {
     h1: "Mobile Detailing in Hayward, CA",

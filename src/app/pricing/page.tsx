@@ -25,6 +25,9 @@ export default function PricingPage() {
                 <h2 className="text-xl font-semibold text-gray-900">{pkg.name}</h2>
                 <p className="mt-2 text-lg font-bold text-primary">{pkg.price}</p>
                 <p className="mt-3 text-sm leading-6 text-gray-600">{pkg.includes}</p>
+                <a href={pkg.bookingUrl} className="mt-4 inline-block btn-primary">
+                  {pkg.cta}
+                </a>
               </article>
             ))}
           </div>
@@ -37,13 +40,8 @@ export default function PricingPage() {
             <a href={contactInfo.smsHref} className="btn-primary text-center">
               Text Photos for Quote
             </a>
-            <a
-              href={contactInfo.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent text-center"
-            >
-              Book on Calendly
+            <a href={contactInfo.bookPath} className="btn-accent text-center">
+              Book Appointment
             </a>
           </div>
         </div>

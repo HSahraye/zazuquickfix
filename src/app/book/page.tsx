@@ -1,90 +1,172 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { contactInfo } from "@/lib/siteContent";
+import {
+  BOOKING_LINKS,
+  PHONE_NUMBER_DISPLAY,
+  PHONE_NUMBER_SMS,
+  PHONE_NUMBER_TEL,
+} from "@/config/booking";
+
+const bookingCards = [
+  {
+    name: "Quick Wash",
+    price: "From $79",
+    description:
+      "A fast exterior refresh for lightly dirty vehicles. Includes exterior hand wash, wheels, tires, windows, and tire shine.",
+    cta: "Book Quick Wash",
+    url: BOOKING_LINKS.quickWash,
+  },
+  {
+    name: "Full Detail",
+    price: "From $199",
+    description:
+      "Our most popular package for a full inside-and-out refresh. Includes exterior wash, wheels, windows, interior vacuum, dashboard, console, cupholders, door panels, and light stain attention.",
+    cta: "Book Full Detail",
+    url: BOOKING_LINKS.fullDetail,
+  },
+  {
+    name: "Deep Reset",
+    price: "From $299+",
+    description:
+      "A deeper detail for neglected interiors, family cars, pet hair, stains, odors, or rideshare vehicles. Includes deep vacuuming, stain treatment, shampoo/extraction where needed, exterior wash, and final walkthrough.",
+    cta: "Book Deep Reset",
+    url: BOOKING_LINKS.deepReset,
+  },
+];
+
+const calendlyOptions = [
+  { label: "Quick Wash", value: BOOKING_LINKS.quickWash },
+  { label: "Full Detail", value: BOOKING_LINKS.fullDetail },
+  { label: "Deep Reset", value: BOOKING_LINKS.deepReset },
+];
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement }) => void;
+    };
+  }
+}
 
 export default function BookNowPage() {
+  const [selectedCalendlyUrl, setSelectedCalendlyUrl] = useState(
+    BOOKING_LINKS.fullDetail,
+  );
+  const embedRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      `script[src="${scriptSrc}"]`,
+    );
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  useEffect(() => {
+    const parentElement = embedRef.current;
+    if (!parentElement) return;
+
+    const renderWidget = () => {
+      if (!window.Calendly) return false;
+      parentElement.innerHTML = "";
+      window.Calendly.initInlineWidget({
+        url: selectedCalendlyUrl,
+        parentElement,
+      });
+      return true;
+    };
+
+    if (renderWidget()) return;
+
+    const timeout = window.setTimeout(() => {
+      renderWidget();
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [selectedCalendlyUrl]);
+
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
       <Navbar />
       <main className="flex-1 section-padding container-padding pt-24 md:pt-32">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-5">
-          <section className="rounded-xl bg-white p-8 shadow lg:col-span-3">
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
-              Request A Mobile Detail Quote
-            </h1>
-            <p className="mt-4 text-gray-700">
-              Fill this out and we will follow up with package guidance and a
-              clear quote.
-            </p>
+        <div className="mx-auto max-w-7xl">
+          <h1 className="text-center text-3xl font-bold tracking-tight sm:text-5xl text-primary">
+            Book Your Mobile Detail
+          </h1>
+          <p className="mx-auto mt-4 max-w-4xl text-center text-gray-700">
+            Choose the package that best matches your vehicle. After booking,
+            please text photos of your vehicle to {PHONE_NUMBER_DISPLAY} so we
+            can confirm the final price based on size, condition, pet hair,
+            stains, odor, parking access, and location.
+          </p>
 
-            <form className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="Name" />
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="Phone" />
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="Email" />
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="City" />
-              <input className="sm:col-span-2 rounded-md border border-gray-300 px-3 py-2" placeholder="Vehicle year / make / model" />
-              <select className="rounded-md border border-gray-300 px-3 py-2 text-gray-700">
-                <option>Vehicle type: sedan</option>
-                <option>SUV</option>
-                <option>Truck</option>
-                <option>Van</option>
-                <option>Luxury</option>
-                <option>Rideshare</option>
-              </select>
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="Service needed" />
-              <select className="rounded-md border border-gray-300 px-3 py-2 text-gray-700">
-                <option>Pet hair? No</option>
-                <option>Pet hair? Yes</option>
-              </select>
-              <select className="rounded-md border border-gray-300 px-3 py-2 text-gray-700">
-                <option>Stains? No</option>
-                <option>Stains? Yes</option>
-              </select>
-              <select className="rounded-md border border-gray-300 px-3 py-2 text-gray-700">
-                <option>Odor? No</option>
-                <option>Odor? Yes</option>
-              </select>
-              <input className="rounded-md border border-gray-300 px-3 py-2" placeholder="Preferred date/time" />
-              <div className="sm:col-span-2 rounded-md border border-dashed border-gray-400 bg-gray-50 px-3 py-6 text-sm text-gray-600">
-                Upload photos placeholder (front seats, back seats, trunk, and
-                exterior)
-              </div>
-              <textarea
-                className="sm:col-span-2 rounded-md border border-gray-300 px-3 py-2"
-                rows={4}
-                placeholder="Notes"
-              />
-              <button type="button" className="sm:col-span-2 btn-primary">
-                Submit Quote Request
-              </button>
-            </form>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href={PHONE_NUMBER_TEL} className="btn-primary">
+              Call or Text {PHONE_NUMBER_DISPLAY}
+            </a>
+            <a href={PHONE_NUMBER_SMS} className="btn-secondary">
+              Text Photos
+            </a>
+          </div>
+
+          <section className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {bookingCards.map((card) => (
+              <article
+                key={card.name}
+                className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <h2 className="text-2xl font-semibold text-gray-900">{card.name}</h2>
+                <p className="mt-2 text-lg font-bold text-primary">{card.price}</p>
+                <p className="mt-4 text-sm leading-6 text-gray-600">
+                  {card.description}
+                </p>
+                <a href={card.url} className="mt-6 inline-block btn-primary">
+                  {card.cta}
+                </a>
+              </article>
+            ))}
           </section>
 
-          <aside className="rounded-xl bg-gray-900 p-8 text-white lg:col-span-2">
-            <h2 className="text-2xl font-semibold">Need A Faster Quote?</h2>
-            <p className="mt-3 text-gray-300">
-              Text photos directly for the fastest estimate.
-            </p>
-            <a href={contactInfo.smsHref} className="mt-5 inline-block btn-primary">
-              Text Photos for Quote
-            </a>
+          <p className="mt-8 rounded-lg bg-white p-4 text-sm text-gray-700">
+            Final pricing may vary by vehicle size, condition, pet hair, stains,
+            odor, parking access, and location. For the fastest quote, text
+            photos to {PHONE_NUMBER_DISPLAY}.
+          </p>
 
-            <h3 className="mt-8 text-xl font-semibold">Prefer Calendar Booking?</h3>
-            <a
-              href={contactInfo.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block btn-accent"
-            >
-              Book on Calendly
-            </a>
-
-            <div className="mt-8 space-y-2 text-sm text-gray-300">
-              <p>Phone: {contactInfo.phoneDisplay}</p>
-              <p>Email: {contactInfo.email}</p>
-              <p>Instagram: {contactInfo.instagramHandle}</p>
+          <section className="mt-12 rounded-xl bg-white p-6 shadow-sm" id="schedule-online">
+            <h2 className="text-2xl font-semibold text-gray-900">Schedule Online</h2>
+            <div className="sticky top-20 z-20 mt-5 flex flex-wrap gap-2 bg-white pb-3">
+              {calendlyOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => setSelectedCalendlyUrl(option.value)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    selectedCalendlyUrl === option.value
+                      ? "bg-primary text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
             </div>
-          </aside>
+            <div
+              key={selectedCalendlyUrl}
+              ref={embedRef}
+              className="calendly-inline-widget mt-4 w-full overflow-hidden rounded-lg border border-gray-200"
+              data-url={selectedCalendlyUrl}
+              style={{ minWidth: "320px", height: "800px" }}
+            />
+          </section>
         </div>
       </main>
       <Footer />

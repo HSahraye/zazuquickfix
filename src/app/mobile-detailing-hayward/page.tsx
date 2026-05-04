@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-detailing-hayward"];
 
 export const metadata: Metadata = {
-  title: "Mobile Detailing Hayward, CA | ZazuQuickFix",
+  title: "Mobile Detailing Hayward, CA | Mobile Labs",
   description:
-    "ZazuQuickFix offers mobile detailing in Hayward with flexible packages and quote-first service at your location.",
+    "Mobile Labs offers mobile detailing in Hayward with flexible packages and quote-first service at your location.",
 };
 
 export default function MobileDetailingHaywardPage() {

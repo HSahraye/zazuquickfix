@@ -10,9 +10,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Bay Area Mobile Car Wash & Detailing | ZazuQuickFix",
+  title: "Bay Area Mobile Car Wash & Detailing | Mobile Labs",
   description:
-    "ZazuQuickFix offers mobile car wash and auto detailing in Oakland and the Bay Area. Interior detailing, exterior wash, pet hair removal, stain treatment, and full mobile detail packages at your location.",
+    "Mobile car wash and auto detailing in Oakland and the Bay Area. Interior detailing, exterior wash, pet hair removal, stain treatment, headlight restoration, and full mobile detail packages at your location.",
   keywords:
     "mobile detailing Oakland, mobile car wash Oakland, Bay Area mobile detailing, interior car detailing Oakland, mobile auto detailing Bay Area, car wash at home Bay Area",
 };

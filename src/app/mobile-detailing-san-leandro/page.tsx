@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-detailing-san-leandro"];
 
 export const metadata: Metadata = {
-  title: "Mobile Detailing San Leandro, CA | ZazuQuickFix",
+  title: "Mobile Detailing San Leandro, CA | Mobile Labs",
   description:
-    "Book mobile detailing in San Leandro with ZazuQuickFix. Interior reset, exterior wash, and full detail options available.",
+    "Book mobile detailing in San Leandro with Mobile Labs. Interior reset, exterior wash, and full detail options available.",
 };
 
 export default function MobileDetailingSanLeandroPage() {

@@ -13,7 +13,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 xl:gap-8">
           <div className="space-y-6 md:col-span-2 lg:col-span-1">
             <Link href="/" className="text-2xl font-bold text-white">
-              Zazu<span className="text-primary">QuickFix</span>
+              <span className="text-primary">Mobile</span>
+              <span className="text-accent">Labs</span>
             </Link>
             <p className="text-sm leading-relaxed">
               Mobile car wash and detailing for Oakland and nearby Bay Area
@@ -28,7 +29,7 @@ export default function Footer() {
               <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link></li>
               <li><Link href="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
-              <li><Link href="/book" className="hover:text-primary transition-colors">Get Quote</Link></li>
+              <li><Link href="/book" className="hover:text-primary transition-colors">Book</Link></li>
               <li><Link href="/mobile-detailing-oakland" className="hover:text-primary transition-colors">Oakland Page</Link></li>
             </ul>
           </div>
@@ -71,7 +72,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-gray-700 pt-8 text-center md:flex md:items-center md:justify-between">
           <p className="text-xs leading-5">
-            &copy; {currentYear} ZazuQuickFix. All rights reserved.
+            &copy; {currentYear} Mobile Labs. All rights reserved.
           </p>
         </div>
       </div>

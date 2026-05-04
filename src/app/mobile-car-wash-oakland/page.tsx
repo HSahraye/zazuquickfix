@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-car-wash-oakland"];
 
 export const metadata: Metadata = {
-  title: "Mobile Car Wash Oakland, CA | ZazuQuickFix",
+  title: "Mobile Car Wash Oakland, CA | Mobile Labs",
   description:
-    "Need a mobile car wash in Oakland? ZazuQuickFix brings exterior wash and interior reset packages directly to your home, office, or apartment.",
+    "Need a mobile car wash in Oakland? Mobile Labs brings exterior wash and interior reset packages directly to your home, office, or apartment.",
 };
 
 export default function MobileCarWashOaklandPage() {

@@ -34,7 +34,7 @@ const galleryCards = [
     image: "/images/gallery/detailing-3.jpg",
   },
   {
-    name: "Rideshare Detail",
+    name: "Rideshare Vehicle Detail",
     caption: "Quick turnaround cleaning for drivers who need presentable interiors daily.",
     image: "/images/gallery/detailing-1.jpg",
   },

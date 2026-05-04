@@ -5,9 +5,9 @@ import { cityLandingPages } from "@/lib/siteContent";
 const page = cityLandingPages["mobile-detailing-walnut-creek"];
 
 export const metadata: Metadata = {
-  title: "Mobile Detailing Walnut Creek, CA | ZazuQuickFix",
+  title: "Mobile Detailing Walnut Creek, CA | Mobile Labs",
   description:
-    "Mobile detailing in Walnut Creek with clear package options and convenient booking from ZazuQuickFix.",
+    "Mobile detailing in Walnut Creek with clear package options and convenient booking from Mobile Labs.",
 };
 
 export default function MobileDetailingWalnutCreekPage() {
