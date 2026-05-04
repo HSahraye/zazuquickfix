@@ -16,13 +16,13 @@
 
 @layer components {
   .btn-primary {
-    @apply rounded-full bg-primary text-white px-6 py-3 text-sm font-semibold shadow-md hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors duration-150 ease-in-out;
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold leading-none text-white shadow-md transition-colors duration-150 ease-in-out hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
   }
   .btn-secondary {
-    @apply rounded-full bg-secondary text-white px-6 py-3 text-sm font-semibold shadow-md hover:bg-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors duration-150 ease-in-out;
+    @apply inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-center text-sm font-semibold leading-none text-white shadow-md transition-colors duration-150 ease-in-out hover:bg-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary;
   }
   .btn-accent {
-    @apply rounded-full bg-accent text-white px-6 py-3 text-sm font-semibold shadow-md hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-150 ease-in-out;
+    @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold leading-none text-white shadow-md transition-colors duration-150 ease-in-out hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
   .nav-link {
     @apply text-sm font-semibold leading-6 text-gray-700 hover:text-primary transition-colors;

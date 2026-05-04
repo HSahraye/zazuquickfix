@@ -4,36 +4,30 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
+  BOOKING_QUERY_TO_LINK,
+  DEFAULT_BOOKING_QUERY,
   BOOKING_LINKS,
-  PHONE_NUMBER_DISPLAY,
-  PHONE_NUMBER_SMS,
   PHONE_NUMBER_TEL,
 } from "@/config/booking";
 
 const bookingCards = [
   {
     name: "Quick Wash",
-    price: "From $79",
     description:
-      "A fast exterior refresh for lightly dirty vehicles. Includes exterior hand wash, wheels, tires, windows, and tire shine.",
-    cta: "Book Quick Wash",
-    url: BOOKING_LINKS.quickWash,
+      "Maintenance cleanups and lightly dirty vehicles. Includes exterior hand wash, wheels and tires cleaned, windows cleaned, quick interior vacuum, light wipe-down of obvious dust, and tire shine.",
+    query: "quick-wash",
   },
   {
     name: "Full Detail",
-    price: "From $199",
     description:
       "Our most popular package for a full inside-and-out refresh. Includes exterior wash, wheels, windows, interior vacuum, dashboard, console, cupholders, door panels, and light stain attention.",
-    cta: "Book Full Detail",
-    url: BOOKING_LINKS.fullDetail,
+    query: "full-detail",
   },
   {
     name: "Deep Reset",
-    price: "From $299+",
     description:
       "A deeper detail for neglected interiors, family cars, pet hair, stains, odors, or rideshare vehicles. Includes deep vacuuming, stain treatment, shampoo/extraction where needed, exterior wash, and final walkthrough.",
-    cta: "Book Deep Reset",
-    url: BOOKING_LINKS.deepReset,
+    query: "deep-reset",
   },
 ];
 
@@ -53,9 +47,22 @@ declare global {
 
 export default function BookNowPage() {
   const [selectedCalendlyUrl, setSelectedCalendlyUrl] = useState(
-    BOOKING_LINKS.fullDetail,
+    BOOKING_QUERY_TO_LINK[DEFAULT_BOOKING_QUERY],
   );
   const embedRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const packageQuery = new URLSearchParams(window.location.search).get(
+      "package",
+    );
+    if (packageQuery && packageQuery in BOOKING_QUERY_TO_LINK) {
+      setSelectedCalendlyUrl(
+        BOOKING_QUERY_TO_LINK[packageQuery as keyof typeof BOOKING_QUERY_TO_LINK],
+      );
+    } else {
+      setSelectedCalendlyUrl(BOOKING_QUERY_TO_LINK[DEFAULT_BOOKING_QUERY]);
+    }
+  }, []);
 
   useEffect(() => {
     const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
@@ -102,18 +109,13 @@ export default function BookNowPage() {
             Book Your Mobile Detail
           </h1>
           <p className="mx-auto mt-4 max-w-4xl text-center text-gray-700">
-            Choose the package that best matches your vehicle. After booking,
-            please text photos of your vehicle to {PHONE_NUMBER_DISPLAY} so we
-            can confirm the final price based on size, condition, pet hair,
-            stains, odor, parking access, and location.
+            Choose your package and schedule online. For the most accurate
+            quote, send clear photos of your vehicle after booking.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex justify-center">
             <a href={PHONE_NUMBER_TEL} className="btn-primary">
-              Call or Text {PHONE_NUMBER_DISPLAY}
-            </a>
-            <a href={PHONE_NUMBER_SMS} className="btn-secondary">
-              Text Photos
+              Call or Text
             </a>
           </div>
 
@@ -124,21 +126,29 @@ export default function BookNowPage() {
                 className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
               >
                 <h2 className="text-2xl font-semibold text-gray-900">{card.name}</h2>
-                <p className="mt-2 text-lg font-bold text-primary">{card.price}</p>
                 <p className="mt-4 text-sm leading-6 text-gray-600">
                   {card.description}
                 </p>
-                <a href={card.url} className="mt-6 inline-block btn-primary">
-                  {card.cta}
-                </a>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setSelectedCalendlyUrl(
+                      BOOKING_QUERY_TO_LINK[
+                        card.query as keyof typeof BOOKING_QUERY_TO_LINK
+                      ],
+                    )
+                  }
+                  className="mt-6 inline-block btn-primary"
+                >
+                  Select {card.name}
+                </button>
               </article>
             ))}
           </section>
 
           <p className="mt-8 rounded-lg bg-white p-4 text-sm text-gray-700">
-            Final pricing may vary by vehicle size, condition, pet hair, stains,
-            odor, parking access, and location. For the fastest quote, text
-            photos to {PHONE_NUMBER_DISPLAY}.
+            Tap Call or Text and send clear photos of your vehicle for the
+            fastest quote.
           </p>
 
           <section className="mt-12 rounded-xl bg-white p-6 shadow-sm" id="schedule-online">

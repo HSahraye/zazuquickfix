@@ -39,7 +39,7 @@ export default function HomeServices() {
                 {service.includes}
               </p>
               <a
-                href={service.bookingUrl}
+                href={service.bookingPath}
                 className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4"
               >
                 {service.cta}

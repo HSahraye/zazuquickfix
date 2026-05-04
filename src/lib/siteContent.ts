@@ -1,9 +1,4 @@
-import {
-  BOOKING_LINKS,
-  PHONE_NUMBER_DISPLAY,
-  PHONE_NUMBER_SMS,
-  PHONE_NUMBER_TEL,
-} from "@/config/booking";
+import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_SMS, PHONE_NUMBER_TEL } from "@/config/booking";
 
 export const contactInfo = {
   phoneDisplay: PHONE_NUMBER_DISPLAY,
@@ -26,15 +21,15 @@ export const packageCards = [
     name: "Quick Wash",
     price: "From $79",
     cta: "Book Quick Wash",
-    bookingUrl: BOOKING_LINKS.quickWash,
+    bookingPath: "/book?package=quick-wash",
     includes:
-      "Exterior hand wash, wheels and tires cleaned, windows cleaned, quick wipe-down of obvious exterior grime, and tire shine.",
+      "Exterior hand wash, wheels and tires cleaned, windows cleaned, quick interior vacuum, light wipe-down of obvious dust, and tire shine.",
   },
   {
     name: "Full Detail",
     price: "From $199",
     cta: "Book Full Detail",
-    bookingUrl: BOOKING_LINKS.fullDetail,
+    bookingPath: "/book?package=full-detail",
     includes:
       "Exterior wash, wheels/tires/windows, interior vacuum, dash/console/cupholders/door panels wipe-down, light stain attention, and interior refresh.",
   },
@@ -42,14 +37,14 @@ export const packageCards = [
     name: "Deep Reset",
     price: "From $299+",
     cta: "Book Deep Reset",
-    bookingUrl: BOOKING_LINKS.deepReset,
+    bookingPath: "/book?package=deep-reset",
     includes:
       "Deep interior vacuum, pet hair removal where possible, stain treatment, shampoo/extraction where appropriate, odor treatment option, exterior wash, and final walkthrough.",
   },
 ];
 
 export const pricingNote =
-  "Prices are starting rates. Final pricing depends on vehicle size, condition, pet hair, stains, odor, parking access, and location. For the most accurate quote, text photos to +1 (510) 978-6055.";
+  "Prices are starting rates. Final pricing depends on vehicle size, condition, pet hair, stains, odor, parking access, and location.";
 
 export const serviceAreaCities = [
   "Oakland",
@@ -69,44 +64,44 @@ export const serviceAreaCities = [
 
 export const faqItems = [
   {
-    question: "Do you bring your own water and power?",
+    question: "Do you come to my location?",
     answer:
-      "Yes. We carry what we need for most jobs and confirm setup details when we quote your service.",
+      "Yes. Mobile Labs is fully mobile and services homes, offices, apartment parking, and driveways across Oakland and nearby Bay Area cities.",
   },
   {
     question: "Can you service apartments or street parking?",
     answer:
-      "In most cases, yes. Share your parking setup and we will confirm the best way to complete your detail.",
+      "In most cases, yes. Share your parking setup when booking so we can confirm access and select the right package.",
+  },
+  {
+    question: "Do you bring your own water and power?",
+    answer:
+      "Yes, for most jobs we bring what we need. If your location has special access limits, we will confirm setup before arrival.",
   },
   {
     question: "How long does a detail take?",
     answer:
-      "Most details take 1.5 to 4 hours depending on package, vehicle size, and interior condition.",
+      "Most appointments run 1.5 to 4 hours depending on package, vehicle size, and condition.",
+  },
+  {
+    question: "Which package should I choose?",
+    answer:
+      "Quick Wash is best for maintenance cleaning. Full Detail is best for most cars. Deep Reset is recommended for heavy pet hair, stains, odors, or long-neglected interiors.",
   },
   {
     question: "Do you remove pet hair?",
     answer:
-      "Yes, pet hair removal is available and can be added based on the amount of hair and vehicle condition.",
+      "Yes. Pet hair removal is included with Deep Reset and can be added to other appointments when needed.",
   },
   {
     question: "Can you remove stains?",
     answer:
-      "We treat most common stains and set clear expectations after reviewing photos of the affected areas.",
-  },
-  {
-    question: "Do you clean rideshare vehicles?",
-    answer:
-      "Yes, rideshare and fleet cleanup packages are available for high-use vehicles that need frequent resets.",
-  },
-  {
-    question: "What areas do you serve?",
-    answer:
-      "We serve Oakland and many nearby Bay Area cities. Contact us with your zip code to confirm availability.",
+      "We provide stain treatment for common spills and buildup. Results depend on material type, stain age, and condition.",
   },
   {
     question: "Is pricing final?",
     answer:
-      "Prices are listed as starting rates. Final pricing depends on size, condition, stains, pet hair, and travel distance.",
+      "Prices are starting rates. Final pricing depends on vehicle size, condition, pet hair, stains, odor, parking access, and location.",
   },
   {
     question: "What happens if it rains?",
@@ -116,7 +111,7 @@ export const faqItems = [
   {
     question: "Do I need to be present?",
     answer:
-      "Not always. We can coordinate access and payment in advance when a safe work setup is available.",
+      "Not always. If we can safely access and work on the vehicle, we can coordinate details in advance.",
   },
 ];
 

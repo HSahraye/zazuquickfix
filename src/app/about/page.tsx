@@ -28,7 +28,7 @@ export default function AboutContactPage() {
                   <div>
                     <h3 className="font-semibold">Phone:</h3>
                     <a href={contactInfo.phoneHref} className="text-gray-700 hover:text-primary">
-                      {contactInfo.phoneDisplay}
+                      Call or Text
                     </a>
                   </div>
                 </div>
@@ -55,7 +55,7 @@ export default function AboutContactPage() {
                   href={contactInfo.smsHref}
                   className="inline-block rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white hover:bg-primary/90"
                 >
-                  Text {contactInfo.phoneDisplay}
+                  Call or Text
                 </a>
                 <p className="mt-4 text-gray-700">{contactInfo.instagramHandle}</p>
               </div>

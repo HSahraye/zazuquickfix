@@ -9,7 +9,6 @@ import { contactInfo } from "@/lib/siteContent";
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
-  { name: 'Pricing', href: '/pricing' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Book', href: '/book' },
   { name: 'About', href: '/about' },
@@ -63,7 +62,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-3">
           <a
             href={contactInfo.phoneHref}
             className="rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"

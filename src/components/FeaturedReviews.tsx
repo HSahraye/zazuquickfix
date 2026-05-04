@@ -5,33 +5,36 @@ import { motion } from "framer-motion";
 const customerOutcomes = [
   {
     id: 1,
-    title: "Dirty interiors",
-    quote: "High-traffic daily drivers that need a full interior reset.",
+    title: "Dirty daily drivers",
+    quote:
+      "Vacuuming, wipe-downs, and interior refreshes for cars used every day.",
   },
   {
     id: 2,
     title: "Pet hair",
-    quote: "Fur buildup in seats, carpets, and trunk areas.",
+    quote:
+      "Extra attention for seats, carpets, cargo areas, and hard-to-reach fabric.",
   },
   {
     id: 3,
-    title: "Coffee stains",
-    quote: "Stain treatment for seats and upholstery touch points.",
+    title: "Coffee and drink stains",
+    quote:
+      "Targeted stain attention for seats, carpets, and high-contact areas.",
   },
   {
     id: 4,
     title: "Family SUVs",
-    quote: "Interior cleanup packages for high-use family vehicles.",
+    quote: "Cleanup for crumbs, dust, spills, and high-use interiors.",
   },
   {
     id: 5,
     title: "Rideshare cleaning",
-    quote: "Fast turnarounds between shifts and weekly resets.",
+    quote: "Refresh the cabin before or after driving shifts.",
   },
   {
     id: 6,
     title: "Headlight restoration",
-    quote: "Cloudy headlights polished for a cleaner front-end look.",
+    quote: "Improve the look of cloudy headlights with restoration as an add-on.",
   },
 ];
 
@@ -41,10 +44,10 @@ export default function FeaturedReviews() {
       <div className="mx-auto max-w-7xl container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            What Customers Book Us For
+            What We Help With
           </h2>
           <p className="mt-4 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-            Common detailing needs we handle across Oakland and the Bay Area.
+            Common reasons Bay Area drivers book Mobile Labs.
           </p>
         </div>
 

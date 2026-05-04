@@ -16,7 +16,7 @@ export default function ServiceAreas() {
           {serviceAreaCities.map((city) => (
             <span
               key={city}
-              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700"
+              className="rounded-full border border-gray-300 bg-white px-3 py-1.5 text-xs font-semibold tracking-wide text-gray-700"
             >
               {city}
             </span>

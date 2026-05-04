@@ -10,8 +10,8 @@ export default function Footer() {
   return (
     <footer className="section-padding bg-secondary text-gray-300">
       <div className="mx-auto max-w-7xl container-padding">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 xl:gap-8">
-          <div className="space-y-6 md:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+          <div className="space-y-6">
             <Link href="/" className="text-2xl font-bold text-white">
               <span className="text-primary">Mobile</span>
               <span className="text-accent">Labs</span>
@@ -27,20 +27,19 @@ export default function Footer() {
             <h3 className="text-md font-semibold uppercase tracking-wider text-white">Quick Links</h3>
             <ul role="list" className="mt-4 space-y-3">
               <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link></li>
               <li><Link href="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
               <li><Link href="/book" className="hover:text-primary transition-colors">Book</Link></li>
-              <li><Link href="/mobile-detailing-oakland" className="hover:text-primary transition-colors">Oakland Page</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-md font-semibold uppercase tracking-wider text-white">Contact Us</h3>
+            <h3 className="text-md font-semibold uppercase tracking-wider text-white">Contact</h3>
             <ul role="list" className="mt-4 space-y-3">
               <li className="flex items-center">
                 <PhoneIcon className="h-5 w-5 mr-2 text-primary" />
                 <a href={contactInfo.phoneHref} className="hover:text-primary transition-colors">
-                  {contactInfo.phoneDisplay}
+                  Call or Text
                 </a>
               </li>
               <li className="flex items-center">
@@ -53,20 +52,6 @@ export default function Footer() {
                 Servicing Oakland & the Bay Area
               </li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="text-md font-semibold uppercase tracking-wider text-white">
-              Text Photos for Quote
-            </h3>
-            <p className="mt-4 text-sm leading-6 text-gray-300">
-              Fastest way to get accurate pricing: text clear photos of the
-              interior and exterior with your vehicle year, make, and model.
-            </p>
-            <a href={contactInfo.smsHref} className="mt-4 inline-block btn-primary">
-              Text {contactInfo.phoneDisplay}
-            </a>
-            <p className="mt-4 text-sm text-gray-300">{contactInfo.instagramHandle}</p>
           </div>
         </div>
 

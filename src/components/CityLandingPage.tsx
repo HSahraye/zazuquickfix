@@ -34,7 +34,6 @@ export default function CityLandingPage({ h1, intro }: CityLandingPageProps) {
                   <h3 className="text-xl font-semibold text-gray-900">
                     {pkg.name}
                   </h3>
-                  <p className="mt-2 text-lg font-bold text-primary">{pkg.price}</p>
                   <p className="mt-3 text-sm text-gray-600">{pkg.includes}</p>
                 </article>
               ))}

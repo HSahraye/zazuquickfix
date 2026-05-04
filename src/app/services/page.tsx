@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { contactInfo } from "@/lib/siteContent";
-import { BOOKING_LINKS } from "@/config/booking";
 
 const packages = [
   {
@@ -12,11 +11,12 @@ const packages = [
       "Exterior hand wash",
       "Wheels and tires cleaned",
       "Windows cleaned",
-      "Quick wipe-down of obvious exterior grime",
+      "Quick interior vacuum",
+      "Light wipe-down of obvious dust",
       "Tire shine",
     ],
     cta: "Book Quick Wash",
-    bookingUrl: BOOKING_LINKS.quickWash,
+    bookingPath: "/book?package=quick-wash",
   },
   {
     name: "Full Detail",
@@ -32,7 +32,7 @@ const packages = [
       "Interior refresh",
     ],
     cta: "Book Full Detail",
-    bookingUrl: BOOKING_LINKS.fullDetail,
+    bookingPath: "/book?package=full-detail",
   },
   {
     name: "Deep Reset",
@@ -49,7 +49,7 @@ const packages = [
       "Final walkthrough",
     ],
     cta: "Book Deep Reset",
-    bookingUrl: BOOKING_LINKS.deepReset,
+    bookingPath: "/book?package=deep-reset",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function ServicesPage() {
       <main className="flex-1 section-padding container-padding pt-24 md:pt-32">
         <div className="mx-auto max-w-6xl">
           <h1 className="text-center text-4xl font-bold tracking-tight sm:text-5xl">
-            Mobile Detail Packages
+            Mobile Detailing Packages
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-gray-600">
             Three clear packages to make booking simple and fast.
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <a
-                  href={pkg.bookingUrl}
+                  href={pkg.bookingPath}
                   className="mt-6 inline-block btn-primary"
                 >
                   {pkg.cta}
@@ -118,7 +118,6 @@ export default function ServicesPage() {
           <p className="mt-8 rounded-lg bg-gray-100 p-4 text-sm text-gray-700">
             Prices are starting rates. Final pricing depends on vehicle size,
             condition, pet hair, stains, odor, parking access, and location.
-            For the most accurate quote, text photos to +1 (510) 978-6055.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">

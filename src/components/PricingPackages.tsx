@@ -21,7 +21,7 @@ export default function PricingPackages() {
               <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
               <p className="mt-2 text-lg font-bold text-primary">{pkg.price}</p>
               <p className="mt-3 text-sm leading-6 text-gray-600">{pkg.includes}</p>
-              <a href={pkg.bookingUrl} className="mt-4 inline-block btn-primary">
+              <a href={pkg.bookingPath} className="mt-4 inline-block btn-primary">
                 {pkg.cta}
               </a>
             </article>
@@ -31,8 +31,8 @@ export default function PricingPackages() {
           {pricingNote}
         </p>
         <div className="mt-8 text-center">
-          <Link href="/pricing" className="btn-primary">
-            View Full Pricing Page
+          <Link href="/services" className="btn-primary">
+            View Services
           </Link>
         </div>
       </div>
